@@ -203,16 +203,75 @@
         </div>
     </section>
 
-    <section id="contact">
-        <h2 class="section-title reveal">Let's Connect</h2>
-        <form class="contact-form reveal">
-            <p style="margin-bottom: 10px; opacity: 0.8;">I'm currently open to internships and collaborative projects!</p>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Tell me about an opportunity or just say hi..." rows="5"></textarea>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-    </section>
+   <section id="feedback" class="fade">
+  <h2>Feedback</h2>
+  <form class="feedback-form" id="feedbackForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <textarea rows="5" id="message" placeholder="Your Feedback" required></textarea>
+    <button type="submit">Submit Feedback</button>
+  </form>
+  <div id="status"></div>
+</section>
+
+    const supabaseUrl = "https://jnlgmipgtoplargyyrks.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpubGdtaXBndG9wbGFyZ3l5cmtzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5NDU2MjQsImV4cCI6MjA4NzUyMTYyNH0.al5VexIYeiC9eY2Hh19OLZADlN8hTPXVvErqz4hSpxs";
+
+const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+// Feedback Form Handler
+document.getElementById("feedbackForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const status = document.getElementById("status");
+  const submitButton = e.target.querySelector('button[type="submit"]');
+  
+  // Show loading state
+  status.innerText = "Submitting...";
+  status.style.color = "#fff";
+  submitButton.disabled = true;
+  submitButton.innerText = "Submitting...";
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  console.log("Attempting to submit feedback:", { name, email, message });
+
+  try {
+    const { data, error } = await supabaseClient
+      .from("feedback")
+      .insert([{ 
+        name: name, 
+        email: email, 
+        message: message 
+      }])
+      .select();
+
+    if (error) {
+      console.error("Supabase error:", error);
+      status.innerText = `❌ Error: ${error.message}`;
+      status.style.color = "#ff4444";
+    } else {
+      console.log("Feedback submitted successfully:", data);
+      status.innerText = "✅ Feedback submitted successfully!";
+      status.style.color = "#00ffd5";
+      e.target.reset();
+      
+      // Clear success message after 5 seconds
+      setTimeout(() => {
+        status.innerText = "";
+      }, 5000);
+    }
+  } catch (err) {
+    console.error("Unexpected error:", err);
+    status.innerText = "❌ An unexpected error occurred. Please try again.";
+    status.style.color = "#ff4444";
+  } finally {
+    submitButton.disabled = false;
+    submitButton.innerText = "Submit Feedback";
+  }
+});
 
     <script>
         const init3D = () => {
@@ -286,3 +345,4 @@
 </body>
 
 </html>
+
