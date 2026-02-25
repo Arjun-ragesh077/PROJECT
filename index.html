@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abharam Paul H | Tech Innovator & Student</title>
+    <title>Arjun Ragesh | Tech Innovator & Student</title>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -65,6 +65,7 @@
         .progress-bar { height: 8px; background: #222; border-radius: 10px; margin-top: 15px; overflow: hidden; }
         .progress { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); width: 0; }
 
+        /* ADDED: Feedback Section Styles */
         .feedback-form { display: flex; flex-direction: column; gap: 15px; max-width: 600px; }
         .feedback-form input, .feedback-form textarea { 
             background: var(--card-bg); border: 1px solid #222; padding: 15px; 
@@ -93,7 +94,7 @@
     <div class="cursor"></div>
 
     <nav>
-        <div class="logo">ABHARAM<span>.</span></div>
+        <div class="logo">ARJUN<span>.</span></div>
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
@@ -106,7 +107,7 @@
     <div id="home" class="hero">
         <canvas id="hero-canvas"></canvas>
         <div class="hero-content">
-            <h1 class="reveal">Abharam <span class="gradient-text">Paul H</span></h1>
+            <h1 class="reveal">Arjun <span class="gradient-text">Ragesh</span></h1>
             <p class="reveal" style="letter-spacing: 4px; font-size: 1.1rem;">EXPLORING THE FUTURE OF AI & CLOUD</p>
         </div>
     </div>
@@ -116,7 +117,7 @@
         <div class="about-container">
             <div class="about-text">
                 <p class="reveal" style="line-height: 1.8; font-size: 1.1rem; margin-bottom: 20px;">
-                    Hi! I'm Abharam. Currently, I'm a student dedicated to mastering the building blocks 
+                    Hi! I'm Arjun. Currently, I'm a student dedicated to mastering the building blocks 
                     of the modern web. Instead of just following a curriculum, I've spent my time 
                     earning professional certifications from world-class leaders like 
                     <strong>AWS, Microsoft, and Infosys</strong>.
@@ -128,7 +129,7 @@
                 </p>
             </div>
             <div class="about-image reveal">
-                <img src="Abharam.jpeg" alt="Abharam Paul H">
+                <img src="ARJUN RAGESH.jpeg" alt="Arjun Ragesh">
             </div>
         </div>
     </section>
@@ -143,6 +144,7 @@
                 <p>Assessment Score: 77% </p>
                 <p>Issued: Oct 17, 2025</p>
             </div>
+
             <div class="cert-card reveal">
                 <span class="badge">AWS</span>
                 <span class="issuer">AWS Academy</span>
@@ -150,6 +152,7 @@
                 <p>20 Hours Training</p>
                 <p>Issued: Feb 04, 2026</p>
             </div>
+
             <div class="cert-card reveal">
                 <span class="badge">Microsoft</span>
                 <span class="issuer">Microsoft Learn</span>
@@ -157,6 +160,7 @@
                 <p>Course Completed</p>
                 <p>Oct 31, 2025</p>
             </div>
+
             <div class="cert-card reveal">
                 <span class="badge">Advanced</span>
                 <span class="issuer">Udemy</span>
@@ -164,6 +168,7 @@
                 <p>16 Total Hours </p>
                 <p>Certified: Feb 04, 2026 </p>
             </div>
+
             <div class="cert-card reveal">
                 <span class="badge">Frontend</span>
                 <span class="issuer">Infosys Springboard</span>
@@ -171,6 +176,7 @@
                 <p>Awarded: Feb 02, 2026</p>
                 <p>Web Design Expert</p>
             </div>
+
             <div class="cert-card reveal">
                 <span class="badge">AWS AI</span>
                 <span class="issuer">AWS Academy</span>
@@ -216,11 +222,11 @@
 
     <script>
         // Supabase Initialization
-        // NOTE: Ensure the Key below is your 'anon/public' key from Supabase Dashboard
-        const supabaseUrl = "https://dwwuvxxixhrouioielxe.supabase.co";
-        const supabaseKey = "sb_publishable_pyrzxgDtKLb029fXlCTtug_rfaf14In"; 
+        const supabaseUrl = "https://jnlgmipgtoplargyyrks.supabase.co";
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpubGdtaXBndG9wbGFyZ3l5cmtzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5NDU2MjQsImV4cCI6MjA4NzUyMTYyNH0.al5VexIYeiC9eY2Hh19OLZADlN8hTPXVvErqz4hSpxs";
         const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
+        // Feedback Form Handler
         document.getElementById("feedbackForm").addEventListener("submit", async (e) => {
             e.preventDefault();
             const status = document.getElementById("status");
@@ -256,6 +262,7 @@
             }
         });
 
+        // 3D Background Logic
         const init3D = () => {
             const canvas = document.querySelector('#hero-canvas');
             const scene = new THREE.Scene();
@@ -291,6 +298,7 @@
             animate();
         };
 
+        // Scroll and UI Logic
         const initLogic = () => {
             gsap.registerPlugin(ScrollTrigger);
             gsap.utils.toArray('.reveal').forEach(elem => {
