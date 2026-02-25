@@ -13,10 +13,11 @@
 
     <style>
         :root {
-            --primary: #6366f1;
+            /* Updated Palette: Arjun Blue & Ragesh Pink */
+            --primary: #3b82f6; 
+            --accent: #ec4899;
             --bg-dark: #0a0a0c;
             --text-light: #f8fafc;
-            --accent: #00f2ff;
             --card-bg: #16161a;
         }
 
@@ -35,14 +36,22 @@
         #hero-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
         .hero-content { z-index: 2; pointer-events: none; }
         .hero-content h1 { font-size: clamp(3rem, 10vw, 5.5rem); text-transform: uppercase; line-height: 1.1; margin-bottom: 15px; }
-        .gradient-text { background: linear-gradient(90deg, #6366f1, #00f2ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* The requested Blue-to-Pink Gradient */
+        .arjun-blue { color: var(--primary); }
+        .ragesh-pink { 
+            background: linear-gradient(90deg, var(--primary), var(--accent)); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            background-clip: text;
+        }
 
         .about-container { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
         .about-text { flex: 1; min-width: 300px; }
         .about-image { 
             flex: 0 0 320px; height: 420px; border-radius: 20px; 
             overflow: hidden; border: 2px solid var(--accent);
-            box-shadow: 0 0 30px rgba(0, 242, 255, 0.15);
+            box-shadow: 0 0 30px rgba(236, 72, 153, 0.15);
         }
         .about-image img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -54,7 +63,7 @@
             background: var(--card-bg); padding: 25px; border-radius: 15px; 
             border: 1px solid #222; transition: 0.4s; position: relative; overflow: hidden;
         }
-        .cert-card:hover { border-color: var(--accent); transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0, 242, 255, 0.1); }
+        .cert-card:hover { border-color: var(--accent); transform: translateY(-8px); box-shadow: 0 10px 30px rgba(236, 72, 153, 0.1); }
         .cert-card h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--accent); }
         .cert-card p { font-size: 0.85rem; opacity: 0.7; margin-bottom: 4px; }
         .cert-card .issuer { font-weight: 700; text-transform: uppercase; font-size: 0.75rem; color: #888; display: block; margin-bottom: 10px; }
@@ -65,7 +74,6 @@
         .progress-bar { height: 8px; background: #222; border-radius: 10px; margin-top: 15px; overflow: hidden; }
         .progress { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); width: 0; }
 
-        /* ADDED: Feedback Section Styles */
         .feedback-form { display: flex; flex-direction: column; gap: 15px; max-width: 600px; }
         .feedback-form input, .feedback-form textarea { 
             background: var(--card-bg); border: 1px solid #222; padding: 15px; 
@@ -76,7 +84,7 @@
             background: var(--primary); color: white; padding: 15px; border: none; 
             border-radius: 10px; cursor: pointer; font-weight: 700; transition: 0.3s;
         }
-        .feedback-form button:hover { background: var(--accent); color: var(--bg-dark); }
+        .feedback-form button:hover { background: var(--accent); color: white; }
         #status { margin-top: 15px; font-size: 0.9rem; }
 
         .reveal { opacity: 0; transform: translateY(40px); }
@@ -107,8 +115,11 @@
     <div id="home" class="hero">
         <canvas id="hero-canvas"></canvas>
         <div class="hero-content">
-            <h1 class="reveal">Arjun <span class="gradient-text">Ragesh</span></h1>
-            <p class="reveal" style="letter-spacing: 4px; font-size: 1.1rem;">EXPLORING THE FUTURE OF AI & CLOUD</p>
+            <h1 class="reveal">
+                <span class="arjun-blue">Arjun</span> 
+                <span class="ragesh-pink">Ragesh</span>
+            </h1>
+            <p class="reveal" style="letter-spacing: 4px; font-size: 1.1rem; color: #888;">EXPLORING THE FUTURE OF AI & CLOUD</p>
         </div>
     </div>
 
@@ -120,7 +131,7 @@
                     Hi! I'm Arjun. Currently, I'm a student dedicated to mastering the building blocks 
                     of the modern web. Instead of just following a curriculum, I've spent my time 
                     earning professional certifications from world-class leaders like 
-                    <strong>AWS, Microsoft, and Infosys</strong>.
+                    <strong style="color: var(--primary);">AWS, Microsoft, and Infosys</strong>.
                 </p>
                 <p class="reveal" style="line-height: 1.8; font-size: 1.1rem;">
                     My goal is to bridge the gap between creative design and technical engineering. 
@@ -277,7 +288,8 @@
             for(let i = 0; i < count * 3; i++) { positions[i] = (Math.random() - 0.5) * 12; }
             particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
             
-            const particlesMaterial = new THREE.PointsMaterial({ size: 0.012, color: 0x6366f1, transparent: true, opacity: 0.7 });
+            // Particles match the primary Blue
+            const particlesMaterial = new THREE.PointsMaterial({ size: 0.012, color: 0x3b82f6, transparent: true, opacity: 0.7 });
             const particles = new THREE.Points(particlesGeometry, particlesMaterial);
             scene.add(particles);
             camera.position.z = 4;
