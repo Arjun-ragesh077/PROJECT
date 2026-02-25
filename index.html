@@ -1,332 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arjun Ragesh | Tech Innovator & Student</title>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abharam Paul H | Tech Innovator & Student</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --primary: #6366f1;
-            --bg-dark: #0a0a0c;
-            --text-light: #f8fafc;
-            --accent: #00f2ff;
-            --card-bg: #16161a;
-        }
+    <style>
+        :root {
+            --primary: #6366f1;
+            --bg-dark: #0a0a0c;
+            --text-light: #f8fafc;
+            --accent: #00f2ff;
+            --card-bg: #16161a;
+        }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--bg-dark); color: var(--text-light); overflow-x: hidden; scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-light); overflow-x: hidden; scroll-behavior: smooth; }
 
-        .cursor { width: 20px; height: 20px; border: 2px solid var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.1s ease; }
+        .cursor { width: 20px; height: 20px; border: 2px solid var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.1s ease; }
 
-        nav { position: fixed; top: 0; width: 100%; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: rgba(10, 10, 12, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid #222; }
-        .logo { font-weight: 700; font-size: 1.5rem; letter-spacing: 2px; }
-        .logo span { color: var(--accent); }
-        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--accent); }
+        nav { position: fixed; top: 0; width: 100%; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: rgba(10, 10, 12, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid #222; }
+        .logo { font-weight: 700; font-size: 1.5rem; letter-spacing: 2px; }
+        .logo span { color: var(--accent); }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
 
-        .hero { height: 100vh; position: relative; display: flex; justify-content: center; align-items: center; text-align: center; }
-        #hero-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
-        .hero-content { z-index: 2; pointer-events: none; }
-        .hero-content h1 { font-size: clamp(3rem, 10vw, 5.5rem); text-transform: uppercase; line-height: 1.1; margin-bottom: 15px; }
-        .gradient-text { background: linear-gradient(90deg, #6366f1, #00f2ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero { height: 100vh; position: relative; display: flex; justify-content: center; align-items: center; text-align: center; }
+        #hero-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        .hero-content { z-index: 2; pointer-events: none; }
+        .hero-content h1 { font-size: clamp(3rem, 10vw, 5.5rem); text-transform: uppercase; line-height: 1.1; margin-bottom: 15px; }
+        .gradient-text { background: linear-gradient(90deg, #6366f1, #00f2ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        .about-container { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
-        .about-text { flex: 1; min-width: 300px; }
-        .about-image { 
-            flex: 0 0 320px; height: 420px; border-radius: 20px; 
-            overflow: hidden; border: 2px solid var(--accent);
-            box-shadow: 0 0 30px rgba(0, 242, 255, 0.15);
-        }
-        .about-image img { width: 100%; height: 100%; object-fit: cover; }
+        .about-container { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+        .about-text { flex: 1; min-width: 300px; }
+        .about-image { 
+            flex: 0 0 320px; height: 420px; border-radius: 20px; 
+            overflow: hidden; border: 2px solid var(--accent);
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.15);
+        }
+        .about-image img { width: 100%; height: 100%; object-fit: cover; }
 
-        section { padding: 100px 10%; min-height: 100vh; position: relative; z-index: 2; }
-        .section-title { font-size: 2.2rem; margin-bottom: 40px; border-left: 5px solid var(--accent); padding-left: 20px; }
+        section { padding: 100px 10%; min-height: 100vh; position: relative; z-index: 2; }
+        .section-title { font-size: 2.2rem; margin-bottom: 40px; border-left: 5px solid var(--accent); padding-left: 20px; }
 
-        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .cert-card { 
-            background: var(--card-bg); padding: 25px; border-radius: 15px; 
-            border: 1px solid #222; transition: 0.4s; position: relative; overflow: hidden;
-        }
-        .cert-card:hover { border-color: var(--accent); transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0, 242, 255, 0.1); }
-        .cert-card h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--accent); }
-        .cert-card p { font-size: 0.85rem; opacity: 0.7; margin-bottom: 4px; }
-        .cert-card .issuer { font-weight: 700; text-transform: uppercase; font-size: 0.75rem; color: #888; display: block; margin-bottom: 10px; }
-        .cert-card .badge { position: absolute; top: 12px; right: 12px; font-size: 0.65rem; background: #333; padding: 4px 8px; border-radius: 5px; color: var(--accent); }
+        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .cert-card { 
+            background: var(--card-bg); padding: 25px; border-radius: 15px; 
+            border: 1px solid #222; transition: 0.4s; position: relative; overflow: hidden;
+        }
+        .cert-card:hover { border-color: var(--accent); transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0, 242, 255, 0.1); }
+        .cert-card h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--accent); }
+        .cert-card p { font-size: 0.85rem; opacity: 0.7; margin-bottom: 4px; }
+        .cert-card .issuer { font-weight: 700; text-transform: uppercase; font-size: 0.75rem; color: #888; display: block; margin-bottom: 10px; }
+        .cert-card .badge { position: absolute; top: 12px; right: 12px; font-size: 0.65rem; background: #333; padding: 4px 8px; border-radius: 5px; color: var(--accent); }
 
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .skill-card { background: #111115; padding: 25px; border-radius: 12px; border-left: 4px solid var(--primary); }
-        .progress-bar { height: 8px; background: #222; border-radius: 10px; margin-top: 15px; overflow: hidden; }
-        .progress { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); width: 0; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .skill-card { background: #111115; padding: 25px; border-radius: 12px; border-left: 4px solid var(--primary); }
+        .progress-bar { height: 8px; background: #222; border-radius: 10px; margin-top: 15px; overflow: hidden; }
+        .progress { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); width: 0; }
 
-        /* ADDED: Feedback Section Styles */
-        .feedback-form { display: flex; flex-direction: column; gap: 15px; max-width: 600px; }
-        .feedback-form input, .feedback-form textarea { 
-            background: var(--card-bg); border: 1px solid #222; padding: 15px; 
-            color: white; border-radius: 10px; outline: none; transition: 0.3s;
-        }
-        .feedback-form input:focus, .feedback-form textarea:focus { border-color: var(--accent); }
-        .feedback-form button { 
-            background: var(--primary); color: white; padding: 15px; border: none; 
-            border-radius: 10px; cursor: pointer; font-weight: 700; transition: 0.3s;
-        }
-        .feedback-form button:hover { background: var(--accent); color: var(--bg-dark); }
-        #status { margin-top: 15px; font-size: 0.9rem; }
+        .feedback-form { display: flex; flex-direction: column; gap: 15px; max-width: 600px; }
+        .feedback-form input, .feedback-form textarea { 
+            background: var(--card-bg); border: 1px solid #222; padding: 15px; 
+            color: white; border-radius: 10px; outline: none; transition: 0.3s;
+        }
+        .feedback-form input:focus, .feedback-form textarea:focus { border-color: var(--accent); }
+        .feedback-form button { 
+            background: var(--primary); color: white; padding: 15px; border: none; 
+            border-radius: 10px; cursor: pointer; font-weight: 700; transition: 0.3s;
+        }
+        .feedback-form button:hover { background: var(--accent); color: var(--bg-dark); }
+        #status { margin-top: 15px; font-size: 0.9rem; }
 
-        .reveal { opacity: 0; transform: translateY(40px); }
+        .reveal { opacity: 0; transform: translateY(40px); }
 
-        @media (max-width: 768px) {
-            nav { padding: 20px; }
-            .hero-content h1 { font-size: 2.8rem; }
-            .about-image { flex: 0 0 100%; height: 380px; }
-            section { padding: 80px 5%; }
-        }
-    </style>
+        @media (max-width: 768px) {
+            nav { padding: 20px; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .about-image { flex: 0 0 100%; height: 380px; }
+            section { padding: 80px 5%; }
+        }
+    </style>
 </head>
 <body>
 
-    <div class="cursor"></div>
+    <div class="cursor"></div>
 
-    <nav>
-        <div class="logo">ARJUN<span>.</span></div>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#certifications">Certifications</a>
-            <a href="#skills">Skills</a>
-            <a href="#feedback">Contact</a>
-        </div>
-    </nav>
+    <nav>
+        <div class="logo">ABHARAM<span>.</span></div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#skills">Skills</a>
+            <a href="#feedback">Contact</a>
+        </div>
+    </nav>
 
-    <div id="home" class="hero">
-        <canvas id="hero-canvas"></canvas>
-        <div class="hero-content">
-            <h1 class="reveal">Arjun <span class="gradient-text">Ragesh</span></h1>
-            <p class="reveal" style="letter-spacing: 4px; font-size: 1.1rem;">EXPLORING THE FUTURE OF AI & CLOUD</p>
-        </div>
-    </div>
+    <div id="home" class="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-content">
+            <h1 class="reveal">Abharam <span class="gradient-text">Paul H</span></h1>
+            <p class="reveal" style="letter-spacing: 4px; font-size: 1.1rem;">EXPLORING THE FUTURE OF AI & CLOUD</p>
+        </div>
+    </div>
 
-    <section id="about">
-        <h2 class="section-title reveal">The Journey So Far</h2>
-        <div class="about-container">
-            <div class="about-text">
-                <p class="reveal" style="line-height: 1.8; font-size: 1.1rem; margin-bottom: 20px;">
-                    Hi! I'm Arjun. Currently, I'm a student dedicated to mastering the building blocks 
-                    of the modern web. Instead of just following a curriculum, I've spent my time 
-                    earning professional certifications from world-class leaders like 
-                    <strong>AWS, Microsoft, and Infosys</strong>.
-                </p>
-                <p class="reveal" style="line-height: 1.8; font-size: 1.1rem;">
-                    My goal is to bridge the gap between creative design and technical engineering. 
-                    I'm building a foundation that combines high-performance styling with intelligent 
-                    cloud-based logic.
-                </p>
-            </div>
-            <div class="about-image reveal">
-                <img src="ARJUN RAGESH.jpeg" alt="Arjun Ragesh">
-            </div>
-        </div>
-    </section>
+    <section id="about">
+        <h2 class="section-title reveal">The Journey So Far</h2>
+        <div class="about-container">
+            <div class="about-text">
+                <p class="reveal" style="line-height: 1.8; font-size: 1.1rem; margin-bottom: 20px;">
+                    Hi! I'm Abharam. Currently, I'm a student dedicated to mastering the building blocks 
+                    of the modern web. Instead of just following a curriculum, I've spent my time 
+                    earning professional certifications from world-class leaders like 
+                    <strong>AWS, Microsoft, and Infosys</strong>.
+                </p>
+                <p class="reveal" style="line-height: 1.8; font-size: 1.1rem;">
+                    My goal is to bridge the gap between creative design and technical engineering. 
+                    I'm building a foundation that combines high-performance styling with intelligent 
+                    cloud-based logic.
+                </p>
+            </div>
+            <div class="about-image reveal">
+                <img src="Abharam.jpeg" alt="Abharam Paul H">
+            </div>
+        </div>
+    </section>
 
-    <section id="certifications" style="background: #0d0d11;">
-        <h2 class="section-title reveal">What I've Learned</h2>
-        <div class="cert-grid">
-            <div class="cert-card reveal">
-                <span class="badge">Gold</span>
-                <span class="issuer">NASSCOM FutureSkills</span>
-                <h3>Digital Engineering</h3>
-                <p>Assessment Score: 77% </p>
-                <p>Issued: Oct 17, 2025</p>
-            </div>
+    <section id="certifications" style="background: #0d0d11;">
+        <h2 class="section-title reveal">What I've Learned</h2>
+        <div class="cert-grid">
+            <div class="cert-card reveal">
+                <span class="badge">Gold</span>
+                <span class="issuer">NASSCOM FutureSkills</span>
+                <h3>Digital Engineering</h3>
+                <p>Assessment Score: 77% </p>
+                <p>Issued: Oct 17, 2025</p>
+            </div>
+            <div class="cert-card reveal">
+                <span class="badge">AWS</span>
+                <span class="issuer">AWS Academy</span>
+                <h3>Cloud Foundations</h3>
+                <p>20 Hours Training</p>
+                <p>Issued: Feb 04, 2026</p>
+            </div>
+            <div class="cert-card reveal">
+                <span class="badge">Microsoft</span>
+                <span class="issuer">Microsoft Learn</span>
+                <h3>Generative AI Specialist</h3>
+                <p>Course Completed</p>
+                <p>Oct 31, 2025</p>
+            </div>
+            <div class="cert-card reveal">
+                <span class="badge">Advanced</span>
+                <span class="issuer">Udemy</span>
+                <h3>Node JS: Advanced Concepts</h3>
+                <p>16 Total Hours </p>
+                <p>Certified: Feb 04, 2026 </p>
+            </div>
+            <div class="cert-card reveal">
+                <span class="badge">Frontend</span>
+                <span class="issuer">Infosys Springboard</span>
+                <h3>CSS3 Modern Styling</h3>
+                <p>Awarded: Feb 02, 2026</p>
+                <p>Web Design Expert</p>
+            </div>
+            <div class="cert-card reveal">
+                <span class="badge">AWS AI</span>
+                <span class="issuer">AWS Academy</span>
+                <h3>Gen AI Foundations</h3>
+                <p>12 Hours Training</p>
+                <p>Nov 02, 2025</p>
+            </div>
+        </div>
+    </section>
 
-            <div class="cert-card reveal">
-                <span class="badge">AWS</span>
-                <span class="issuer">AWS Academy</span>
-                <h3>Cloud Foundations</h3>
-                <p>20 Hours Training</p>
-                <p>Issued: Feb 04, 2026</p>
-            </div>
+    <section id="skills">
+        <h2 class="section-title reveal">Skill Roadmap</h2>
+        <div class="skills-grid">
+            <div class="skill-card reveal">
+                <h3>Frontend Architecture (HTML/CSS)</h3>
+                <div class="progress-bar"><div class="progress" data-width="95%"></div></div>
+            </div>
+            <div class="skill-card reveal">
+                <h3>Backend Logic (Node.js)</h3>
+                <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
+            </div>
+            <div class="skill-card reveal">
+                <h3>Generative AI & LLMs</h3>
+                <div class="progress-bar"><div class="progress" data-width="80%"></div></div>
+            </div>
+            <div class="skill-card reveal">
+                <h3>Cloud Engineering</h3>
+                <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
+            </div>
+        </div>
+    </section>
 
-            <div class="cert-card reveal">
-                <span class="badge">Microsoft</span>
-                <span class="issuer">Microsoft Learn</span>
-                <h3>Generative AI Specialist</h3>
-                <p>Course Completed</p>
-                <p>Oct 31, 2025</p>
-            </div>
+    <section id="feedback">
+        <h2 class="section-title reveal">Feedback</h2>
+        <form class="feedback-form reveal" id="feedbackForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea rows="5" id="message" placeholder="Your Feedback" required></textarea>
+            <button type="submit">Submit Feedback</button>
+            <div id="status"></div>
+        </form>
+    </section>
 
-            <div class="cert-card reveal">
-                <span class="badge">Advanced</span>
-                <span class="issuer">Udemy</span>
-                <h3>Node JS: Advanced Concepts</h3>
-                <p>16 Total Hours </p>
-                <p>Certified: Feb 04, 2026 </p>
-            </div>
+    <script>
+        // Supabase Initialization
+        // NOTE: Ensure the Key below is your 'anon/public' key from Supabase Dashboard
+        const supabaseUrl = "https://dwwuvxxixhrouioielxe.supabase.co";
+        const supabaseKey = "sb_publishable_pyrzxgDtKLb029fXlCTtug_rfaf14In"; 
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
-            <div class="cert-card reveal">
-                <span class="badge">Frontend</span>
-                <span class="issuer">Infosys Springboard</span>
-                <h3>CSS3 Modern Styling</h3>
-                <p>Awarded: Feb 02, 2026</p>
-                <p>Web Design Expert</p>
-            </div>
+        document.getElementById("feedbackForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const status = document.getElementById("status");
+            const submitButton = e.target.querySelector('button[type="submit"]');
+            
+            status.innerText = "Submitting...";
+            status.style.color = "#fff";
+            submitButton.disabled = true;
 
-            <div class="cert-card reveal">
-                <span class="badge">AWS AI</span>
-                <span class="issuer">AWS Academy</span>
-                <h3>Gen AI Foundations</h3>
-                <p>12 Hours Training</p>
-                <p>Nov 02, 2025</p>
-            </div>
-        </div>
-    </section>
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
 
-    <section id="skills">
-        <h2 class="section-title reveal">Skill Roadmap</h2>
-        <div class="skills-grid">
-            <div class="skill-card reveal">
-                <h3>Frontend Architecture (HTML/CSS)</h3>
-                <div class="progress-bar"><div class="progress" data-width="95%"></div></div>
-            </div>
-            <div class="skill-card reveal">
-                <h3>Backend Logic (Node.js)</h3>
-                <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
-            </div>
-            <div class="skill-card reveal">
-                <h3>Generative AI & LLMs</h3>
-                <div class="progress-bar"><div class="progress" data-width="80%"></div></div>
-            </div>
-            <div class="skill-card reveal">
-                <h3>Cloud Engineering</h3>
-                <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
-            </div>
-        </div>
-    </section>
+            try {
+                const { data, error } = await supabaseClient
+                    .from("feedback")
+                    .insert([{ name, email, message }]);
 
-    <section id="feedback">
-        <h2 class="section-title reveal">Feedback</h2>
-        <form class="feedback-form reveal" id="feedbackForm">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea rows="5" id="message" placeholder="Your Feedback" required></textarea>
-            <button type="submit">Submit Feedback</button>
-            <div id="status"></div>
-        </form>
-    </section>
+                if (error) {
+                    status.innerText = `❌ Error: ${error.message}`;
+                    status.style.color = "#ff4444";
+                } else {
+                    status.innerText = "✅ Feedback submitted successfully!";
+                    status.style.color = "#00ffd5";
+                    e.target.reset();
+                    setTimeout(() => { status.innerText = ""; }, 5000);
+                }
+            } catch (err) {
+                status.innerText = "❌ Connection error. Please try again.";
+                status.style.color = "#ff4444";
+            } finally {
+                submitButton.disabled = false;
+            }
+        });
 
-    <script>
-        // Supabase Initialization
-        const supabaseUrl = "https://jnlgmipgtoplargyyrks.supabase.co";
-        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpubGdtaXBndG9wbGFyZ3l5cmtzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5NDU2MjQsImV4cCI6MjA4NzUyMTYyNH0.al5VexIYeiC9eY2Hh19OLZADlN8hTPXVvErqz4hSpxs";
-        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+        const init3D = () => {
+            const canvas = document.querySelector('#hero-canvas');
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-        // Feedback Form Handler
-        document.getElementById("feedbackForm").addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const status = document.getElementById("status");
-            const submitButton = e.target.querySelector('button[type="submit"]');
-            
-            status.innerText = "Submitting...";
-            status.style.color = "#fff";
-            submitButton.disabled = true;
+            const particlesGeometry = new THREE.BufferGeometry();
+            const count = 3500;
+            const positions = new Float32Array(count * 3);
+            for(let i = 0; i < count * 3; i++) { positions[i] = (Math.random() - 0.5) * 12; }
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            
+            const particlesMaterial = new THREE.PointsMaterial({ size: 0.012, color: 0x6366f1, transparent: true, opacity: 0.7 });
+            const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+            scene.add(particles);
+            camera.position.z = 4;
 
-            const name = document.getElementById("name").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const message = document.getElementById("message").value.trim();
+            let mouseX = 0, mouseY = 0;
+            document.addEventListener('mousemove', (e) => {
+                mouseX = (e.clientX / window.innerWidth) - 0.5;
+                mouseY = (e.clientY / window.innerHeight) - 0.5;
+            });
 
-            try {
-                const { data, error } = await supabaseClient
-                    .from("feedback")
-                    .insert([{ name, email, message }]);
+            const animate = () => {
+                requestAnimationFrame(animate);
+                particles.rotation.y += 0.001;
+                particles.position.x += (mouseX * 0.4 - particles.position.x) * 0.05;
+                particles.position.y += (-mouseY * 0.4 - particles.position.y) * 0.05;
+                renderer.render(scene, camera);
+            };
+            animate();
+        };
 
-                if (error) {
-                    status.innerText = `❌ Error: ${error.message}`;
-                    status.style.color = "#ff4444";
-                } else {
-                    status.innerText = "✅ Feedback submitted successfully!";
-                    status.style.color = "#00ffd5";
-                    e.target.reset();
-                    setTimeout(() => { status.innerText = ""; }, 5000);
-                }
-            } catch (err) {
-                status.innerText = "❌ Connection error. Please try again.";
-                status.style.color = "#ff4444";
-            } finally {
-                submitButton.disabled = false;
-            }
-        });
+        const initLogic = () => {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.utils.toArray('.reveal').forEach(elem => {
+                gsap.fromTo(elem, { opacity: 0, y: 30 }, { 
+                    opacity: 1, y: 0, duration: 1, ease: "power2.out",
+                    scrollTrigger: { trigger: elem, start: "top 85%" }
+                });
+            });
 
-        // 3D Background Logic
-        const init3D = () => {
-            const canvas = document.querySelector('#hero-canvas');
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            gsap.utils.toArray('.progress').forEach(bar => {
+                gsap.to(bar, {
+                    width: bar.dataset.width, duration: 1.5, ease: "expo.out",
+                    scrollTrigger: { trigger: bar, start: "top 90%" }
+                });
+            });
 
-            const particlesGeometry = new THREE.BufferGeometry();
-            const count = 3500;
-            const positions = new Float32Array(count * 3);
-            for(let i = 0; i < count * 3; i++) { positions[i] = (Math.random() - 0.5) * 12; }
-            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            
-            const particlesMaterial = new THREE.PointsMaterial({ size: 0.012, color: 0x6366f1, transparent: true, opacity: 0.7 });
-            const particles = new THREE.Points(particlesGeometry, particlesMaterial);
-            scene.add(particles);
-            camera.position.z = 4;
+            const cursor = document.querySelector('.cursor');
+            document.addEventListener('mousemove', (e) => {
+                gsap.to(cursor, { x: e.clientX - 10, y: e.clientY - 10, duration: 0.1 });
+            });
+        };
 
-            let mouseX = 0, mouseY = 0;
-            document.addEventListener('mousemove', (e) => {
-                mouseX = (e.clientX / window.innerWidth) - 0.5;
-                mouseY = (e.clientY / window.innerHeight) - 0.5;
-            });
-
-            const animate = () => {
-                requestAnimationFrame(animate);
-                particles.rotation.y += 0.001;
-                particles.position.x += (mouseX * 0.4 - particles.position.x) * 0.05;
-                particles.position.y += (-mouseY * 0.4 - particles.position.y) * 0.05;
-                renderer.render(scene, camera);
-            };
-            animate();
-        };
-
-        // Scroll and UI Logic
-        const initLogic = () => {
-            gsap.registerPlugin(ScrollTrigger);
-            gsap.utils.toArray('.reveal').forEach(elem => {
-                gsap.fromTo(elem, { opacity: 0, y: 30 }, { 
-                    opacity: 1, y: 0, duration: 1, ease: "power2.out",
-                    scrollTrigger: { trigger: elem, start: "top 85%" }
-                });
-            });
-
-            gsap.utils.toArray('.progress').forEach(bar => {
-                gsap.to(bar, {
-                    width: bar.dataset.width, duration: 1.5, ease: "expo.out",
-                    scrollTrigger: { trigger: bar, start: "top 90%" }
-                });
-            });
-
-            const cursor = document.querySelector('.cursor');
-            document.addEventListener('mousemove', (e) => {
-                gsap.to(cursor, { x: e.clientX - 10, y: e.clientY - 10, duration: 0.1 });
-            });
-        };
-
-        window.onload = () => {
-            init3D();
-            initLogic();
-        };
-    </script>
+        window.onload = () => {
+            init3D();
+            initLogic();
+        };
+    </script>
 </body>
 </html>
-
-change gredient color usuend in ragesh to pink
